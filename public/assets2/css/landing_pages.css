@@ -1,0 +1,257 @@
+    /* start color */
+    .btn.btn-pink {
+        background: #000;
+        border: 1px solid #000;
+        color: #fff; }
+    .btn.btn-pink:hover {
+        border: 1px solid #000;
+        background: transparent;
+        color: #000; }
+    .btn.btn-pink.btn-outline-pink {
+        border: 1px solid #000;
+        background: transparent;
+        color: #000; }
+    .btn.btn-pink.btn-outline-pink:hover {
+        border: 1px solid transparent;
+        background: #000;
+        color: #fff; }
+    .btn.btn-purple {
+        background: #E9E1FF;
+        border: 1px solid #E9E1FF;
+        color: #000; }
+    .btn.btn-purple:hover {
+        border: 1px solid #000;
+        background: transparent;
+        color: #000; }
+    .btn.btn-purple.btn-outline-purple {
+        border: 1px solid #000;
+        background: transparent;
+        color: #E9E1FF; }
+    .btn.btn-purple.btn-outline-purple:hover {
+        border: 1px solid transparent;
+        background: #E9E1FF;
+        color: #000; }
+    .btn.btn-yellow {
+        background: #FFBD73;
+        border: 1px solid #FFBD73;
+        color: #fff; }
+    .btn.btn-yellow:hover {
+        border: 1px solid #FFBD73;
+        background: transparent;
+        color: #FFBD73; }
+    .btn.btn-yellow.btn-outline-yellow {
+        border: 1px solid #FFBD73;
+        background: transparent;
+        color: #FFBD73; }
+    .btn.btn-yellow.btn-outline-yellow:hover {
+        border: 1px solid transparent;
+        background: #FFBD73;
+        color: #fff; }
+    .btn.btn-blue {
+        background: #305F72;
+        border: 1px solid #305F72;
+        color: #fff;
+        text-decoration: none !important; }
+    .btn.btn-blue:hover {
+        border: 1px solid #305F72;
+        background: transparent;
+        color: #305F72;
+        text-decoration: none !important; }
+    .btn.btn-blue.btn-outline-blue {
+        border: 1px solid #305F72;
+        background: transparent;
+        color: #305F72; }
+    .btn.btn-blue.btn-outline-blue:hover {
+        border: 1px solid transparent;
+        background: #305F72;
+        color: #fff; }
+    .btn.btn-cloud {
+        background: #C5E1F6;
+        border: 1px solid #C5E1F6;
+        color: #000;
+        text-decoration: none !important; }
+    .btn.btn-cloud:hover {
+        border: 1px solid #C5E1F6;
+        background: transparent;
+        color: #000;
+        text-decoration: none !important; }
+    .btn.btn-cloud.btn-outline-cloud {
+        border: 1px solid #C5E1F6;
+        background: transparent;
+        color: #000; }
+    .btn.btn-cloud.btn-outline-cloud:hover {
+        border: 1px solid transparent;
+        background: #C5E1F6;
+        color: #fff; }
+    .badge.bg-cloud {
+        background-color: #C5E1F6;
+    }
+    .bg-cloud {
+        background-color: #C5E1F6;
+    }
+    /* end color */
+    
+    /* start navbar */
+    .navbar {
+        background-color: rgb(242, 242, 242, 1);
+        height: 80px;
+        margin: 20px;
+        border-radius: 16px;
+        padding: 0.5rem;
+        z-index: 10;
+    }
+    .navbar-brand{
+        line-height: 1;
+        width: 130px;
+    }
+    .donasi-button {
+        background-color: #456F80;
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s background-color;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .donasi-button:hover {
+        background-color: white; /* Latar putih saat hover */
+        color: #456F80; /* Warna teks biru (sesuai warna btn-biru Bootstrap 5) */
+        border: 2px solid #456F80; /* Outline tetap biru */
+        transition: all 0.3s ease; /* Transisi lembut */
+    }
+    .login-button {
+        background-color: #1E1E1E;
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s background-color;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .login-button:hover {
+        background-color: white; /* Latar putih saat hover */
+        color: #1E1E1E; /* Warna teks biru (sesuai warna btn-biru Bootstrap 5) */
+        border: 2px solid #1E1E1E; /* Outline tetap biru */
+        transition: all 0.3s ease; /* Transisi lembut */
+    }
+    /* .login-button {
+        border: 2px solid #F18C8E;
+        color: #F18C8E;
+        font-size: 14px;
+        padding: 8px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s background-color;
+        text-transform: uppercase;
+        font-weight: 600;
+    } */
+    /* .login-button:hover {
+        background-color: white;
+        color: #fff; 
+        background-color: #F18C8E;
+        transition: all 0.3s ease; 
+    } */
+    .navbar-toggler {
+        border: none;
+        font-size: 1.25rem;
+    }
+    #toggler-icon {
+        color: #000;
+    }
+    .navbar-toggler:focus .btn-close:focus {
+        box-shadow: none;
+        outline: none;
+    }
+    .nav-link {
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
+        position: relative;
+        opacity: 1 !important;
+    }
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: #456F80;
+        visibility: hidden;
+        transform: translateX(-50%);
+        transition: all 0.5s ease-in-out 0s;
+    }
+    .navbar .nav-link:hover, .navbar .nav-link.active {
+        color: #000;
+    }
+    .navbar .navbar-nav > .nav-item > .nav-link.active {
+        color: #000; 
+        font-weight: bold; }
+    @media (min-width: 991px) {
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #456F80;
+            visibility: hidden;
+            transition: 0.3s ease-in-out;
+        }
+        .nav-link:hover::before, .nav-link.active::before {
+            width: 100%;
+            visibility: visible;
+        }         
+    }
+    /* end navbar */
+
+    /* start carousel */
+    .c-item {
+        height: 620px;
+        position: relative;
+    }
+    .c-img {
+        object-fit: cover;
+        display: block;
+        border: none;
+        z-index: 0;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        top: 50%;
+        transform: translateY(10%);
+    }
+    .carousel-inner {
+        overflow: hidden;
+        display: flex;
+        margin-top: -100px;
+    }
+    .carousel-item {
+        background-color: #976363;
+    }
+    /* end carousel */
+
+    /* start panti home */
+    .panti-button {
+        background-color: #FEE6A8;
+        color: #000;
+        font-size: 14px;
+        padding: 8px 30px;
+        text-decoration: none;
+        transition: 0.3s ease-in-out background-color;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .panti-button:hover {
+        background-color: white; /* Latar putih saat hover */
+        color: #000; /* Warna teks biru (sesuai warna btn-biru Bootstrap 5) */
+        transition: all 0.3s ease; /* Transisi lembut */
+    }
+    /* end panti home */
+
+
+    /* text-danger text-decoration-none fs-5 position-relative py-2 px-5 rounded-pill fw-bold text-uppercase */
