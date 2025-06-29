@@ -130,7 +130,7 @@ class Operator_Controller extends Controller
             'kota_kabupaten' => $validatedData['kota_kabupaten'],
             'kecamatan' => $validatedData['kecamatan'],
             'kelurahan' => $validatedData['kelurahan'],
-            'no_rekening' => $validatedData['no_rekening'],
+            // 'no_rekening' => $validatedData['no_rekening'],
             'akte_pendirian_panti_asuhan' => $dokumenAkte,
             'surat_tanda_daftar_lembaga_kesejahteraan_sosial' => $dokumenSosial,
             'sk_pengesahan_badan' => $skPengesahan,
