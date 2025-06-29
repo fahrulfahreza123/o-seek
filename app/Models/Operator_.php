@@ -24,4 +24,9 @@ class Operator_ extends Authenticatable
     {
         return $this->belongsTo(Operator::class);
     }
+
+    public function registrasiPanti()
+    {
+        return $this->hasMany(RegistrasiPantiAsuhan::class, 'id_operator_s');
+    }
 }

@@ -6,19 +6,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-5">
                     <li class="nav-item border-end border-dark">
-                        <a class="nav-link mx-lg-5 {{ ($active === "home") ? 'active' : '' }}" href="/">Beranda</a>
+                        <a class="nav-link mx-lg-5 {{ $active === 'home' ? 'active' : '' }}" href="/">Beranda</a>
                     </li>
                     <li class="nav-item border-end border-dark">
-                        <a class="nav-link mx-lg-5 {{ ($active === "about") ? 'active' : '' }}" href="/about">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-5 {{ ($active === "panti asuhan") ? 'active' : '' }}" href="/panti_asuhan_all">Panti Asuhan</a>
+                        <a class="nav-link mx-lg-5 {{ $active === 'about' ? 'active' : '' }}"
+                            href="{{ url('about') }}">Tentang</a>
                     </li>
                 </ul>
             </div>
-            <a href="/donate" class="donasi-button mx-lg-4">Berdonasi</a>
-            <a href="#" class="login-button">Login</a>
-            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <a href="/RegisterOperator" class="donasi-button mx-lg-4">Sign Up</a>
+            <a href="/LoginOperator" class="login-button">Login</a>
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" id="toggler-icon"></span>
             </button>
         </div>

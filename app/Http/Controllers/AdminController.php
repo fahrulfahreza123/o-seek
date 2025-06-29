@@ -39,7 +39,7 @@ class AdminController extends Controller
     {
         // Temukan data berdasarkan ID
         $operator = Operator::findOrFail($id);
-        
+
         // Ubah status menjadi 'rejected'
         $operator->status = 'rejected';
         $operator->save();

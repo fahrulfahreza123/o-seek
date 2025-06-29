@@ -619,8 +619,6 @@
                             <thead class="table-header" id="tabel-stripet">
                                 <tr>
                                     <th scope="col" style="background-color:#D6D6D6; color:rgb(0, 0, 0);">No</th>
-                                    <th scope="col" style="background-color:#D6D6D6; color:rgb(0, 0, 0);">Tanggal
-                                    </th>
                                     <th scope="col" style="background-color:#D6D6D6; color:rgb(0, 0, 0);">Nama
                                         Operator
                                     </th>
@@ -640,9 +638,6 @@
                                     </th>
                                     <th scope="col" style="background-color:#D6D6D6; color:rgb(0, 0, 0);">Kelurahan
                                     </th>
-                                    <th scope="col" style="background-color: #D6D6D6; color:rgb(0, 0, 0);">No.
-                                        Rekening
-                                    </th>
                                     <th scope="col" style="background-color:#D6D6D6; color:rgb(0, 0, 0);">Dokumen
                                         Akte
                                         Pendirian</th>
@@ -659,8 +654,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
 
-                                        <td>{{ $operator->tanggal }}</td>
-                                        <td>{{ $operator->nama_operator }}</td>
+                                        {{-- <td>{{ $operator->tanggal }}</td> --}}
+                                        <td>{{ $operator->operator_s->name ?? '-' }}</td>
                                         <td>{{ $operator->nama_panti_asuhan }}</td>
                                         <td>{{ $operator->nama_yayasan }}</td>
                                         <td>{{ $operator->alamat }}</td>
@@ -668,12 +663,12 @@
                                         <td>{{ $operator->kota_kabupaten }}</td>
                                         <td>{{ $operator->kecamatan }}</td>
                                         <td>{{ $operator->kelurahan }}</td>
-                                        <td>{{ $operator->no_rekening }}</td>
+                                        {{-- <td>{{ $operator->no_rekening }}</td> --}}
 
                                         <td>
                                             <button class="custom-btn" data-bs-toggle="modal"
                                                 data-bs-target="#documentModal"
-                                                data-document="{{ asset('storage/' . $operator->dokumen_akte_pendirian) }}">
+                                                data-document="{{ asset('storage/dokumen' . $operator->akte_pendirian_panti_asuhan) }}">
                                                 <i class="bi bi-file-earmark-text"></i> Preview
                                             </button>
                                         </td>
@@ -1022,7 +1017,7 @@
                         });
                     </script>
 
-                    
+
                 </div>
                 <!-- Right side columns -->
                 <div class="col-lg-7">

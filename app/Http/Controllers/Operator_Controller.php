@@ -14,9 +14,9 @@ class Operator_Controller extends Controller
 {
     public function dashboard()
     {
-        if (Auth::guard('operator')->check()) { 
+        if (Auth::guard('operator')->check()) {
             $operator = Auth::guard('operator')->user();
-    
+
             return view('operator.dashboard.dashboard', [
                 'operator_s_id' => $operator->id, // Sesuaikan jika kolom operator_s_id ada di tabel operator_
             ]);
@@ -55,7 +55,7 @@ class Operator_Controller extends Controller
             'email' => $validatedData['email'],
             'password' => $validatedData['password'], // Enkripsi password
         ]);
-    
+
         // Redirect ke halaman registrasi panti asuhan untuk melengkapi data operator
         return redirect()->route('register_panti')->with('success', 'Register berhasil! Silakan Masukkan Data Panti Asuhan Kamu.');
     }
@@ -80,12 +80,12 @@ class Operator_Controller extends Controller
             'nama_panti_asuhan' => 'required|string|max:255',
             'nama_yayasan' => 'required|string|max:255',
             'alamat' => 'required|string',
-            'nama_bank' => 'required|in:1,2,3,4,5',
-            'provinsi' => 'required|in:1,2,3',
-            'kota_kabupaten' => 'required|in:1,2,3',
-            'kecamatan' => 'required|in:1,2,3',
-            'kelurahan' => 'required|in:1,2,3',
-            'no_rekening' => 'required|string|max:50',
+            'nama_bank' => 'required',
+            'provinsi' => 'required',
+            'kota_kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            // 'no_rekening' => 'required|string|max:50',
             'dokumen_akte_pendirian' => 'required|file|mimes:pdf|max:2048',
             'dokumen_sosial' => 'required|file|mimes:pdf|max:2048',
             'sk_pengesahan' => 'required|file|mimes:pdf|max:2048',
@@ -107,12 +107,12 @@ class Operator_Controller extends Controller
             'email' => $operatorData['email'],
             'password' => bcrypt($operatorData['password']), // Hash password
         ]);
-    
+
         // Proses upload dokumen
         $dokumenAkte = $request->file('dokumen_akte_pendirian')->store('dokumen', 'public');
         $dokumenSosial = $request->file('dokumen_sosial')->store('dokumen', 'public');
         $skPengesahan = $request->file('sk_pengesahan')->store('dokumen', 'public');
-    
+
         // Proses upload foto jika ada
         // $fotoPantiAsuhan = null;
         // if ($request->hasFile('foto_panti_asuhan')) {
@@ -121,6 +121,7 @@ class Operator_Controller extends Controller
 
         // Simpan ke registrasi_panti_asuhans
         RegistrasiPantiAsuhan::create([
+            'id_operator_s' => $operator->id,
             'nama_panti_asuhan' => $validatedData['nama_panti_asuhan'],
             'nama_yayasan' => $validatedData['nama_yayasan'],
             'alamat' => $validatedData['alamat'],
@@ -130,12 +131,12 @@ class Operator_Controller extends Controller
             'kecamatan' => $validatedData['kecamatan'],
             'kelurahan' => $validatedData['kelurahan'],
             'no_rekening' => $validatedData['no_rekening'],
-            'dokumen_akte_pendirian' => $dokumenAkte,
-            'dokumen_sosial' => $dokumenSosial,
-            'sk_pengesahan' => $skPengesahan,
+            'akte_pendirian_panti_asuhan' => $dokumenAkte,
+            'surat_tanda_daftar_lembaga_kesejahteraan_sosial' => $dokumenSosial,
+            'sk_pengesahan_badan' => $skPengesahan,
             // 'foto_panti_asuhan' => $fotoPantiAsuhan,
         ]);
-    
+
         // Simpan data ke tabel Operator
         // PantiAsuhanOperator::create([
         //     'operator_s_id' => $operator->id, // Menyimpan ID operator
@@ -152,7 +153,7 @@ class Operator_Controller extends Controller
         //     'dokumen_sosial' => $dokumenSosial,
         //     'sk_pengesahan' => $skPengesahan,
         // ]);
-            // 'foto_panti_asuhan' => $fotoPantiAsuhan,
+        // 'foto_panti_asuhan' => $fotoPantiAsuhan,
 
         // Hapus data dari Session
         Session::forget('operator_data');
@@ -174,11 +175,11 @@ class Operator_Controller extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
+
         // Attempt to login as Operator_
         if (Auth::guard('operator')->attempt($request->only('email', 'password'))) {
             $user = Auth::guard('operator')->user();
-    
+
             // Cek status di tabel Operator (untuk validasi status)
             if ($user->operator && $user->operator->status === 'pending') {
                 Auth::guard('operator')->logout();
@@ -187,11 +188,11 @@ class Operator_Controller extends Controller
                 Auth::guard('operator')->logout();
                 return redirect()->route('login')->with('error', 'Data Anda ditolak. Silakan lakukan registrasi ulang.');
             }
-    
+
             // Jika status accepted, lanjutkan ke dashboard
             return redirect()->route('dashboard.operator');
         }
-    
+
         return back()->withErrors(['email' => 'Email atau password salah.']);
     }
 
@@ -205,7 +206,7 @@ class Operator_Controller extends Controller
     //             return redirect()->route('login')->with('error', 'Data Anda ditolak. Silakan lakukan registrasi ulang.');
     //         }
     //     }
-    
+
     //     // Jika status diterima, arahkan ke dashboard
     //     return redirect()->intended('/DashboardOperator');
     // }

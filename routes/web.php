@@ -127,12 +127,13 @@ Route::middleware(['auth:operator'])->group(function () {
 
 
 //---------------Route Start Landing Page--------------- ! 
-
+// Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/panti_asuhan_all/{id}', [HomeController::class, 'detail']);
+// End Home Page
 
 Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('/panti_asuhan_all', [PantiPageController::class, 'index']);
 Route::get('panti_asuhan_all/{panti_asuhan_operator}', [PantiPageController::class, 'show']);
 
 // Route::get('/single_panti', [PantiPageController::class, 'show']);
@@ -328,7 +329,6 @@ Route::post('admin/panti/reject/{id}', [AdminController::class, 'rejectPanti'])-
 
 //ValidasiOperator
 Route::get('ValidasiOperator', [OperatorController::class, 'validasi'])->name('operator.validasi')->middleware('auth');
-Route::get('/validasi-operator', [PantiAsuhanController::class, 'validasi'])->name('validasi-operator');
 Route::get('/validasi-operator', [PantiAsuhanController::class, 'validasi'])->name('validasi-operator');
 
 

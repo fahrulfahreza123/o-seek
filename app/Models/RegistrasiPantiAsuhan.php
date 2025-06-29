@@ -11,4 +11,9 @@ class RegistrasiPantiAsuhan extends Model
 
     protected $guarded = ['id'];
     protected $table = 'registrasi_panti_asuhans';
+
+    public function operator_s()
+    {
+        return $this->belongsTo(Operator_::class, 'id_operator_s');
+    }
 }
